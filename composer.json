@@ -1,0 +1,21 @@
+{
+    "name": "olo FM",
+    "description": "olo Framworks",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "MRG & nuiz",
+            "email": "admin@olo.wtf"
+        }
+    ],
+    "require": {
+        "dannykopping/docblock": "*",
+        "altorouter/altorouter": "*",
+        "mashape/unirest-php": "dev-master",
+        "vlucas/valitron": "*",
+        "facebook/php-sdk-v4": "*",
+        "doctrine/orm": "*",
+        "catfan/medoo": "*"
+    }
+}
