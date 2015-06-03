@@ -1,5 +1,9 @@
 <?php
 use Main\Helper;
+if (empty($_SESSION['user_id'])) {
+    header( "location: ".Helper\URL::absolute('/login') );
+    exit(0);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +20,10 @@ use Main\Helper;
 
     <!-- Bootstrap -->
     <link href="<?php echo Helper\URL::absolute("/public/css/bootstrap.min.css")?>" rel="stylesheet">
-
+    <!-- Material Css -->
+    <link href="<?php echo Helper\URL::absolute("/public/css/roboto.min.css")?>" rel="stylesheet">
+    <link href="<?php echo Helper\URL::absolute("/public/css/material.min.css")?>" rel="stylesheet">
+    <link href="<?php echo Helper\URL::absolute("/public/css/ripples.min.css")?>" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -27,5 +34,36 @@ use Main\Helper;
     <script src="<?php echo \Main\Helper\URL::absolute("/public/js/jquery.min.js")?>"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<?php echo \Main\Helper\URL::absolute("/public/js/bootstrap.min.js")?>"></script>
+    <!-- Sweet Alert -->
+    <script src="<?php echo Helper\URL::absolute("/public/js/sweet-alert.min.js")?>"></script>
+    <link href="<?php echo Helper\URL::absolute("/public/css/sweet-alert.css")?>" rel="stylesheet">
+    <link href="<?php echo Helper\URL::absolute("/public/css/ie9.css")?>" rel="stylesheet">
+    <!-- font awesome -->
+    <link href="<?php echo Helper\URL::absolute("/public/css/font-awesome.min.css")?>" rel="stylesheet">
+    <!-- Material jQuery -->
+    <script src="<?php echo Helper\URL::absolute("/public/js/ripples.min.js")?>"></script>
+    <script src="<?php echo Helper\URL::absolute("/public/js/material.min.js")?>"></script>
 </head>
 <body>
+<style>
+    .nav > li.active , .nav > li:hover , .nav > li:focus {
+        color: inherit;
+        background-color: rgba(0,0,0,.1);
+    }
+</style>
+<div class="container">
+    <div id="content">
+        <div class="bs-component">
+            <ul id="tabs" class="nav nav-tabs nav-justified" data-tabs="tabs">
+                <?php if ($_SESSION['level'] == 2 ) {
+                    $l = Helper\URL::absolute('/');
+                    echo <<<HTML
+<li><a href="{$l}" >Staff</a></li>
+HTML;
+                }?>
+                <li><a href="<?php echo Helper\URL::absolute('/employee');?>" >Employee</a></li>
+                <li><a href="<?php echo Helper\URL::absolute('/logout');?>">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
