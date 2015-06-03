@@ -16,11 +16,13 @@ use Main\Helper;
 $this->import("/layout/header");
 ?>
     <div class="container">
+        <div><h2>Staff</h2></div>
         <div>
             <?php
                 if ($_SESSION['level'] == 2 ) {
                     $x = Xcrud::get_instance();
                     $x->table('user');
+                    $x->unset_title();
                     $x->relation('level', 'level', 'id', 'level_name');
                     $x->columns('id,username,email,level,first_name,last_name,tel_number,branch');
                     echo $x->render();
