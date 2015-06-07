@@ -41,6 +41,48 @@ class IndexCTL extends BaseCTL {
     }
     /**
      * @GET
+     * @uri employer
+     */
+    public function employerView () {
+        return new HtmlView('/employer');
+    }
+    /**
+     * @GET
+     * @uri blacklist
+     */
+    public function blacklistView () {
+        return new HtmlView('/blacklist');
+    }
+    /**
+     * @GET
+     * @uri visa
+     */
+    public function visaView () {
+        return new HtmlView('/visa');
+    }
+    /**
+     * @GET
+     * @uri nationality
+     */
+    public function nationalityView () {
+        return new HtmlView('/nationality');
+    }
+    /**
+     * @GET
+     * @uri race
+     */
+    public function raceView () {
+        return new HtmlView('/race');
+    }
+    /**
+     * @GET
+     * @uri religious
+     */
+    public function religiousView () {
+        return new HtmlView('/religious');
+    }
+    /**
+     * @GET
      * @uri logout
      */
     public function logout () {

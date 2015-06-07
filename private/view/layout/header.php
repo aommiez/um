@@ -58,11 +58,22 @@ if (empty($_SESSION['user_id'])) {
                 <?php if ($_SESSION['level'] == 2 ) {
                     $l = Helper\URL::absolute('/');
                     echo <<<HTML
-<li><a href="{$l}" >Staff</a></li>
+<li><a href="{$l}" >พนักงาน</a></li>
 HTML;
                 }?>
-                <li><a href="<?php echo Helper\URL::absolute('/employee');?>" >Employee</a></li>
-                <li><a href="<?php echo Helper\URL::absolute('/logout');?>">Logout</a></li>
+                <li><a href="<?php echo Helper\URL::absolute('/employer');?>" >นายจ้าง</a></li>
+                <li><a href="<?php echo Helper\URL::absolute('/employee');?>" >แม่บ้าน</a></li>
+                <li><a href="<?php echo Helper\URL::absolute('/blacklist');?>" >แบคล์ริส</a></li>
+                <li><a href="<?php echo Helper\URL::absolute('/visa');?>" >รายการต่อ VISA</a></li>
+                <li><a href="<?php echo Helper\URL::absolute('/logout');?>">ออกจากระบบ</a></li>
+            </ul>
+
+        </div>
+        <div class="bs-component">
+            <ul id="tabs" class="nav nav-tabs nav-justified" data-tabs="tabs">
+                <li><a href="<?php echo Helper\URL::absolute('/nationality');?>" >สัญชาติ</a></li>
+                <li><a href="<?php echo Helper\URL::absolute('/race');?>" >เชื้อชาติ</a></li>
+                <li><a href="<?php echo Helper\URL::absolute('/religious');?>" >ศาสนา</a></li>
             </ul>
         </div>
     </div>
